@@ -144,14 +144,24 @@
 // });
 
 
+import express from "express";
+import mongoose from "mongoose";
+import bodyParser from "body-parser";
+import cors from "cors";
+import multer from "multer";
+import path from "path";
+import fs from "fs";
 
-const express = require("express");
-const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-const cors = require("cors");
-const multer = require("multer");
-const path = require("path");
-const fs = require("fs");
+
+/**
+ * Import the Express module.
+ * @module express
+ */
+
+
+
+
+
 
 const app = express();
 
@@ -160,13 +170,13 @@ app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 
 // Enable Cross-Origin Resource Sharing (CORS)
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors({ origin: "https://frontend-crud-xd40kpls6-kehan321s-projects.vercel.app" }));
 
 // Ensure the 'uploads' directory exists, create it if it doesn't
-const uploadDir = path.join(__dirname, 'uploads');
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir, { recursive: true }); // Create the directory if it doesn't exist
-}
+
+// if (!fs.existsSync(uploadDir)) {
+//   fs.mkdirSync(uploadDir, { recursive: true }); // Create the directory if it doesn't exist
+// }
 
 // Set up multer storage configuration
 const storage = multer.diskStorage({
